@@ -1,7 +1,7 @@
 pipeline {
     environment {
         registry = "scaredcat/udacity-kube"
-        registryCredential = ‘dockerhub’
+        registryCredential = 'dockerhub'
     }
     agent any
     stages {
