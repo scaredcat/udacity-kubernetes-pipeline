@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Check') {
             steps {
-                script {
+                withAWS(profile: 'default') {
                     sh 'kubectl get pods'
                 }
             }
