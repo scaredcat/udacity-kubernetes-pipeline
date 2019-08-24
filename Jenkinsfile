@@ -1,6 +1,5 @@
 pipeline {
     environment {
-        registry = "scaredcat/udacity-kube"
         registryCredential = 'dockerhub'
     }
     agent any
@@ -17,6 +16,13 @@ pipeline {
                     docker.withRegistry('', registryCredential) {
                         dockerImage.push()
                     }
+                }
+            }
+        }
+        stage('Check') {
+            steps {
+                script {
+                    sh 'kubectl get pods'
                 }
             }
         }
