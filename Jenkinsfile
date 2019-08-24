@@ -22,7 +22,7 @@ pipeline {
         stage('Check') {
             steps {
                 script {
-                    sh 'kubectl get pods'
+                    sh "kubectl set image deployment/udacity-deployment scaredcat/udacity-kube:${env.GIT_COMMIT[0..7]}"
                 }
             }
         }
